@@ -1,11 +1,15 @@
-import React from "react";
+import React from 'react';
 
-function Filters() {
+const Filters = ({ filters, onChangeType, onFindPetsClick }) => {
+  const handleChangeType = (e) => {
+    onChangeType(e.target.value);
+  };
+
   return (
     <div className="ui form">
       <h3>Animal type</h3>
       <div className="field">
-        <select name="type" id="type" aria-label="type">
+        <select value={filters.type} onChange={handleChangeType}>
           <option value="all">All</option>
           <option value="cat">Cats</option>
           <option value="dog">Dogs</option>
@@ -13,11 +17,11 @@ function Filters() {
         </select>
       </div>
 
-      <div className="field">
-        <button className="ui secondary button">Find pets</button>
-      </div>
+      <button className="ui secondary button" onClick={onFindPetsClick}>
+        Find pets
+      </button>
     </div>
   );
-}
+};
 
 export default Filters;
