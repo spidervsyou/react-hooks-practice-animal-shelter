@@ -1,9 +1,12 @@
-import React from "react";
+import React from 'react';
+import Pet from './Pet';
 
-import Pet from "./Pet";
+const PetBrowser = ({ pets, onAdoptPet }) => {
+  const renderPets = pets.map(pet => (
+    <Pet key={pet.id} pet={pet} onAdoptPet={onAdoptPet} />
+  ));
 
-function PetBrowser() {
-  return <div className="ui cards">PET COMPONENT SHOULD GO HERE</div>;
-}
+  return <div className="ui cards">{renderPets}</div>;
+};
 
 export default PetBrowser;
